@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  // функция принимает на вход 2 числа и возвращает их сумму
+  function sum(num1, num2) {
+    return num1 + num2;
+  }
+
+  // функция принимает на вход 2 числа, если 1 число больше 2ого, то вычитает из первого второе,
+  // Иначе вычтет из второго первое ( Если числа равны, то из второго вычтется первое и получится 0)
+  function subtraction(num1, num2) {
+    if (num1 > num2) {
+      return num1 - num2;
+    } else {
+      return num2 - num1;
+    }
+  }
+
+  // функция принимает на вход 2 числа, возвращает их произведение
+  function multiply(num1, num2) {
+    return num1 * num2;
+  }
+
+  // функция принимает на вход 2 числа, возвращает результат деления 1ого на 2ое
+  function division(num1, num2) {
+    return num1 / num2;
+  }
+
+  // Функция принимает на вход 2 числа и оператор operation, и выполняет арифметическое действие в зависимости от переданного оператора
+  // Если в operation передана несуществующая мат операция, то возвращает NaN
+  function mathOperation(arg1, arg2, operation) {
+    if (operation === "+") {
+      return sum(arg1, arg2);
+    } else if (operation === "-") {
+      return subtraction(arg1, arg2);
+    } else if (operation === "/:") {
+      return division(arg1, arg2);
+    } else if (operation === "*") {
+      return multiply(arg1, arg2);
+    } else {
+      return NaN
+    }
+  }
+
+  console.log(mathOperation(5, 3, "+"));
+  console.log(mathOperation(5, 3, ":)"));
+</script>
+</body>
+</html>
